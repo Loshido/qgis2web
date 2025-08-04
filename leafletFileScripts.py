@@ -66,7 +66,7 @@ def writeFoldersAndFiles(pluginDir, feedback, outputProjectFileName,
         shutil.copyfile(cssDir + 'L.Control.Locate.min.css',
                         cssStore + 'L.Control.Locate.min.css')
     if safemap:
-        shutil.copyfile(jsDir  + 'safemap.js', jsStore + 'safemap.js')
+        shutil.copyfile(jsDir  + 'L.safemap.js', jsStore + 'L.safemap.js')
     shutil.copyfile(jsDir + 'multi-style-layer.js',
                     jsStore + 'multi-style-layer.js')
     shutil.copyfile(jsDir + 'Autolinker.min.js',
@@ -151,7 +151,7 @@ def writeHTMLstart(outputIndex, webpage_name, cluster_set, address, measure,
         <script src="js/L.Control.Locate.min.js"></script>"""
     if safemap:
         jsAddress += """
-        <script src="js/safemap.js"></script>"""
+        <script src="js/L.safemap.js"></script>"""
     if useMultiStyle:
         jsAddress += """
         <script src="js/multi-style-layer.js"></script>"""
