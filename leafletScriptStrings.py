@@ -185,6 +185,14 @@ def addLocateControl(locate):
         """
     return locateScript
 
+def addSafemapControl(safemap):
+    if not safemap:
+        return "" 
+    locateScript = """
+        const safemap = (new LogoutControl()).addTo(map)
+        """
+    return locateScript
+
 def addMeasureControl(measure):
     if measure == "None":
         return ""    

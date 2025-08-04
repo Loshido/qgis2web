@@ -60,6 +60,7 @@ from qgis2web.leafletScriptStrings import (jsonScript,
                                            getVTStyles,
                                            getVTLabels,
                                            addLocateControl,
+                                           addSafemapControl,
                                            addMeasureControl,
                                            addZoomControl)
 from qgis2web.utils import (ALL_ATTRIBUTES, exportVector,
@@ -254,6 +255,7 @@ class LeafletWriter(Writer):
             middle += abstractStart            
         middle += addZoomControl()
         middle += addLocateControl(locate)
+        middle += addSafemapControl(safemap)
         middle += addMeasureControl(measure)
         middle += featureGroupsScript()
         extentCode = extentScript(extent, restrictToExtent)

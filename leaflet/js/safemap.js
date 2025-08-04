@@ -1,17 +1,12 @@
-import { Control } from "leaflet"
-
-const LogoutControl = Control.extend({
+const LogoutControl = L.Control.extend({
     options: {
         position: "topleft",
 
     },
     onAdd() {
-        const container = document.createElement('a')
-        container.href = new URL('/deconnexion', location.origin).toString()
-        container.className = "leaflet-control" 
+        const link = L.DomUtil.create('a', 'leaflet-control-logout leaflet-bar leaflet-control');
+        link.href = new URL('/deconnexion', location.origin).toString()
 
-        return container;
+        return link;
     }
 })
-
-export { LogoutControl }
