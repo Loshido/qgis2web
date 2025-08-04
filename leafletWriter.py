@@ -144,6 +144,7 @@ class LeafletWriter(Writer):
         titleOptions = params["Appearance"]["Title"]
         abstractOptions = params["Appearance"]["Abstract"]
         locate = params["Appearance"]["Geolocate user"]
+        safemap = params["Appearance"]["Safemap server"]
         measure = params["Appearance"]["Measure tool"]
         highlight = params["Appearance"]["Highlight on hover"]
         layerSearch = params["Appearance"]["Layer search"]
@@ -163,7 +164,7 @@ class LeafletWriter(Writer):
                                                    cluster, measure,
                                                    matchCRS, layerSearch,
                                                    layerFilter, canvas,
-                                                   addressSearch, locate, layersList)
+                                                   addressSearch, locate, safemap, layersList)
         writeCSS(cssStore, mapSettings.backgroundColor().name(), feedback,
                  widgetAccent, widgetBackground, layersList)
 
@@ -381,7 +382,7 @@ class LeafletWriter(Writer):
         try:
             writeHTMLstart(outputIndex, title, cluster, addressSearch,
                            measure, matchCRS, layerSearch, filterItems, canvas,
-                           locate, new_src, template, feedback, useMultiStyle,
+                           locate, safemap, new_src, template, feedback, useMultiStyle,
                            useHeat, useShapes, useOSMB, useWMS, useWMTS, useVT)
         except Exception:
             QgsMessageLog.logMessage(traceback.format_exc(),

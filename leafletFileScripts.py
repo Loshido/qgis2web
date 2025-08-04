@@ -9,7 +9,7 @@ from qgis2web.utils import replaceInTemplate
 
 def writeFoldersAndFiles(pluginDir, feedback, outputProjectFileName,
                          cluster_set, measure, matchCRS, layerSearch,
-                         filterItems, canvas, address, locate, layersList):
+                         filterItems, canvas, address, locate, safemap, layersList):
     feedback.showFeedback("Exporting libraries...")
     jsStore = os.path.join(outputProjectFileName, 'js')
     os.makedirs(jsStore)
@@ -65,6 +65,8 @@ def writeFoldersAndFiles(pluginDir, feedback, outputProjectFileName,
                         jsStore + 'L.Control.Locate.min.js')
         shutil.copyfile(cssDir + 'L.Control.Locate.min.css',
                         cssStore + 'L.Control.Locate.min.css')
+    if safemap:
+        shutil.copyfile(jsDir  + 'safemap.js', jsStore + 'safemap.js')
     shutil.copyfile(jsDir + 'multi-style-layer.js',
                     jsStore + 'multi-style-layer.js')
     shutil.copyfile(jsDir + 'Autolinker.min.js',
@@ -128,7 +130,7 @@ def writeFoldersAndFiles(pluginDir, feedback, outputProjectFileName,
 
 
 def writeHTMLstart(outputIndex, webpage_name, cluster_set, address, measure,
-                   matchCRS, layerSearch, filterItems, canvas, locate,
+                   matchCRS, layerSearch, filterItems, canvas, locate, safemap,
                    qgis2webJS, template, feedback, useMultiStyle, useHeat,
                    useShapes, useOSMB, useWMS, useWMTS, useVT):
     useCluster = False
@@ -147,6 +149,9 @@ def writeHTMLstart(outputIndex, webpage_name, cluster_set, address, measure,
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">"""
         jsAddress += """
         <script src="js/L.Control.Locate.min.js"></script>"""
+    if safemap:
+        jsAddress += """
+        <script src="js/safemap.js"></script>"""
     if useMultiStyle:
         jsAddress += """
         <script src="js/multi-style-layer.js"></script>"""

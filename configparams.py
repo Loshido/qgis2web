@@ -57,6 +57,7 @@ def getParams(configure_exporter_action=None):
             "Layers list": ("None", "Collapsed", "Expanded"),
             "Attribute filter": ["None", "placeholder2"],
             "Geolocate user": False,
+            "Safemap server": True,
             "Measure tool": ("None", "Metric", "Imperial"),
             "Address search": ("None", "Nominatim", "BAN"),
             "Layer search": ("None", "placeholder"),

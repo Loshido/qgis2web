@@ -210,6 +210,9 @@ class exportLayer(qgis2webAlgorithm):
         inputGeolocate = self.parameterAsBool(parameters,
                                               "Geolocate user",
                                               context)
+        inputSafemap = self.parameterAsBool(parameters,
+                                              "Safemap server",
+                                              context)
         inputHighlight = self.parameterAsBool(parameters,
                                               "Highlight on hover",
                                               context)
@@ -239,6 +242,7 @@ class exportLayer(qgis2webAlgorithm):
                 inputAddress,
                 inputLayersList,
                 inputGeolocate,
+                inputSafemap,
                 inputHighlight,
                 inputLayerSearch,
                 inputCRS,
@@ -350,6 +354,8 @@ class exportVector(exportLayer):
                                                         "Add layers list"))
         self.addParameter(QgsProcessingParameterBoolean("GEOLOCATE",
                                                         "Geolocate user"))
+        self.addParameter(QgsProcessingParameterBoolean("SAFEMAP",
+                                                        "Safemap server"))
         self.addParameter(QgsProcessingParameterBoolean("HIGHLIGHT",
                                                         "Highlight on hover"))
         self.addParameter(QgsProcessingParameterString("SEARCH",
